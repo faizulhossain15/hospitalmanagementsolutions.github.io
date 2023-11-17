@@ -1,0 +1,2996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Hospital Management System</title>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+    <div id="loginError" class="error-message"></div>
+    <form id="loginForm">
+      <label for="userType">Select User Type:</label>
+      <select id="userType" name="userType">
+        <option value="admin">Admin</option>
+        <option value="doctor">Doctor</option>
+        <option value="patient">Patient</option>
+      </select>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+      <button type="button" onclick="login()">Login</button>
+    </form>
+  </div>
+  <script src="scripts.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospital Management System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 1em;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #4CAF50;
+      overflow: hidden;
+    }
+
+    nav a {
+      float: left;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    main {
+      padding: 1em;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .card {
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 1em;
+      margin: 1em 0;
+      border-radius: 8px;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 1em;
+      text-align: center;
+    }
+
+    @media only screen and (max-width: 600px) {
+      nav a {
+        float: none;
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Hospital Management System</h1>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#patients">Patients</a>
+    <a href="#doctors">Doctors</a>
+    <a href="#appointments">Appointments</a>
+  </nav>
+
+  <main>
+    <div class="container">
+      <div class="card">
+        <h2>Welcome to our Hospital Management System!</h2>
+        <p>This is a simple example. You can customize and expand based on your requirements.</p>
+      </div>
+
+      <!-- Add more cards and content here based on your needs -->
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Hospital Management System</p>
+  </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- (previous head content remains unchanged) -->
+</head>
+<body>
+  <header>
+    <h1>Hospital Management System</h1>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#patients">Patients</a>
+    <a href="#doctors">Doctors</a>
+    <a href="#appointments">Appointments</a>
+  </nav>
+
+  <main>
+    <div class="container">
+      <!-- Patients Section -->
+      <section id="patients" class="card">
+        <h2>Patients</h2>
+        <ul>
+          <li>Patient 1</li>
+          <li>Patient 2</li>
+          <li>Patient 3</li>
+          <!-- Add more patients as needed -->
+        </ul>
+      </section>
+
+      <!-- Doctors Section -->
+      <section id="doctors" class="card">
+        <h2>Doctors</h2>
+        <ul>
+          <li>Dr. Smith</li>
+          <li>Dr. Johnson</li>
+          <li>Dr. Davis</li>
+          <!-- Add more doctors as needed -->
+        </ul>
+      </section>
+
+      <!-- Appointments Section -->
+      <section id="appointments" class="card">
+        <h2>Appointments</h2>
+        <ul>
+          <li>Appointment with Dr. Smith on 2023-11-17 at 2:00 PM</li>
+          <li>Appointment with Dr. Johnson on 2023-11-18 at 3:30 PM</li>
+          <!-- Add more appointments as needed -->
+        </ul>
+      </section>
+
+      <!-- Add more sections and content as needed -->
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Hospital Management System</p>
+  </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- (previous head content remains unchanged) -->
+
+  <script>
+    // JavaScript for interactivity
+    document.addEventListener("DOMContentLoaded", function () {
+      // Sample patient data
+      const patients = [
+        { id: 1, name: "Patient 1", age: 30, condition: "Fever" },
+        { id: 2, name: "Patient 2", age: 45, condition: "Injury" },
+        { id: 3, name: "Patient 3", age: 28, condition: "Cough" },
+      ];
+
+      // Function to display patient details
+      function displayPatientDetails(patientId) {
+        const selectedPatient = patients.find(patient => patient.id === patientId);
+
+        if (selectedPatient) {
+          alert(`Patient Details:\nName: ${selectedPatient.name}\nAge: ${selectedPatient.age}\nCondition: ${selectedPatient.condition}`);
+        } else {
+          alert("Patient not found.");
+        }
+      }
+
+      // Function to add a new patient
+      function addPatient() {
+        const newName = prompt("Enter patient name:");
+        const newAge = prompt("Enter patient age:");
+        const newCondition = prompt("Enter patient condition:");
+
+        const newPatient = {
+          id: patients.length + 1,
+          name: newName,
+          age: parseInt(newAge),
+          condition: newCondition,
+        };
+
+        patients.push(newPatient);
+        updatePatientsList();
+      }
+
+      // Function to update the patients list
+      function updatePatientsList() {
+        const patientsList = document.getElementById("patients-list");
+
+        // Clear existing list
+        patientsList.innerHTML = "";
+
+        // Populate the list with updated patient data
+        patients.forEach(patient => {
+          const listItem = document.createElement("li");
+          listItem.textContent = patient.name;
+          listItem.addEventListener("click", () => displayPatientDetails(patient.id));
+          patientsList.appendChild(listItem);
+        });
+      }
+
+      // Initial update of the patients list
+      updatePatientsList();
+
+      // Attach event listener to the "Add Patient" button
+      const addPatientButton = document.getElementById("add-patient-button");
+      addPatientButton.addEventListener("click", addPatient);
+    });
+  </script>
+</head>
+<body>
+  <!-- (previous body content remains unchanged) -->
+
+  <main>
+    <div class="container">
+      <!-- Patients Section -->
+      <section id="patients" class="card">
+        <h2>Patients</h2>
+        <ul id="patients-list">
+          <!-- Patients will be dynamically added here -->
+        </ul>
+        <button id="add-patient-button">Add Patient</button>
+      </section>
+
+      <!-- (previous sections remain unchanged) -->
+
+    </div>
+  </main>
+
+  <!-- (previous footer content remains unchanged) -->
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- (previous head content remains unchanged) -->
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Sample doctor data
+      const doctors = [
+        { id: 1, name: "Dr. Smith", specialization: "Internal Medicine" },
+        { id: 2, name: "Dr. Johnson", specialization: "Orthopedics" },
+        { id: 3, name: "Dr. Davis", specialization: "Pediatrics" },
+      ];
+
+      // Sample appointment data
+      const appointments = [
+        { id: 1, doctorId: 1, patientId: 1, date: "2023-11-17", time: "14:00" },
+        { id: 2, doctorId: 2, patientId: 2, date: "2023-11-18", time: "15:30" },
+      ];
+
+      // Function to display doctor details
+      function displayDoctorDetails(doctorId) {
+        const selectedDoctor = doctors.find(doctor => doctor.id === doctorId);
+
+        if (selectedDoctor) {
+          alert(`Doctor Details:\nName: ${selectedDoctor.name}\nSpecialization: ${selectedDoctor.specialization}`);
+        } else {
+          alert("Doctor not found.");
+        }
+      }
+
+      // Function to display appointment details
+      function displayAppointmentDetails(appointmentId) {
+        const selectedAppointment = appointments.find(appointment => appointment.id === appointmentId);
+
+        if (selectedAppointment) {
+          const selectedDoctor = doctors.find(doctor => doctor.id === selectedAppointment.doctorId);
+          const selectedPatient = patients.find(patient => patient.id === selectedAppointment.patientId);
+
+          alert(`Appointment Details:\nDoctor: ${selectedDoctor.name}\nPatient: ${selectedPatient.name}\nDate: ${selectedAppointment.date}\nTime: ${selectedAppointment.time}`);
+        } else {
+          alert("Appointment not found.");
+        }
+      }
+
+      // Function to add a new appointment
+      function addAppointment() {
+        const newDoctorId = prompt("Enter doctor ID:");
+        const newPatientId = prompt("Enter patient ID:");
+        const newDate = prompt("Enter appointment date (YYYY-MM-DD):");
+        const newTime = prompt("Enter appointment time:");
+
+        const newAppointment = {
+          id: appointments.length + 1,
+          doctorId: parseInt(newDoctorId),
+          patientId: parseInt(newPatientId),
+          date: newDate,
+          time: newTime,
+        };
+
+        appointments.push(newAppointment);
+        updateAppointmentsList();
+      }
+
+      // Function to update the appointments list
+      function updateAppointmentsList() {
+        const appointmentsList = document.getElementById("appointments-list");
+
+        // Clear existing list
+        appointmentsList.innerHTML = "";
+
+        // Populate the list with updated appointment data
+        appointments.forEach(appointment => {
+          const listItem = document.createElement("li");
+          const doctor = doctors.find(d => d.id === appointment.doctorId);
+          const patient = patients.find(p => p.id === appointment.patientId);
+          listItem.textContent = `${doctor.name} - ${patient.name} on ${appointment.date} at ${appointment.time}`;
+          listItem.addEventListener("click", () => displayAppointmentDetails(appointment.id));
+          appointmentsList.appendChild(listItem);
+        });
+      }
+
+      // Initial update of the appointments list
+      updateAppointmentsList();
+    });
+  </script>
+</head>
+<body>
+  <!-- (previous body content remains unchanged) -->
+
+  <main>
+    <div class="container">
+      <!-- Doctors Section -->
+      <section id="doctors" class="card">
+        <h2>Doctors</h2>
+        <ul>
+          <!-- Doctors will be dynamically added here -->
+        </ul>
+      </section>
+
+      <!-- Appointments Section -->
+      <section id="appointments" class="card">
+        <h2>Appointments</h2>
+        <ul id="appointments-list">
+          <!-- Appointments will be dynamically added here -->
+        </ul>
+        <button id="add-appointment-button">Add Appointment</button>
+      </section>
+
+      <!-- Add more sections and content as needed -->
+
+    </div>
+  </main>
+
+  <!-- (previous footer content remains unchanged) -->
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- (previous head content remains unchanged) -->
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // (previous JavaScript code remains unchanged)
+
+      // Function to add a new doctor
+      function addDoctor() {
+        const newName = prompt("Enter doctor name:");
+        const newSpecialization = prompt("Enter doctor specialization:");
+
+        const newDoctor = {
+          id: doctors.length + 1,
+          name: newName,
+          specialization: newSpecialization,
+        };
+
+        doctors.push(newDoctor);
+        updateDoctorsList();
+      }
+
+      // Function to update the doctors list
+      function updateDoctorsList() {
+        const doctorsList = document.getElementById("doctors-list");
+
+        // Clear existing list
+        doctorsList.innerHTML = "";
+
+        // Populate the list with updated doctor data
+        doctors.forEach(doctor => {
+          const listItem = document.createElement("li");
+          listItem.textContent = `${doctor.name} - ${doctor.specialization}`;
+          listItem.addEventListener("click", () => displayDoctorDetails(doctor.id));
+          doctorsList.appendChild(listItem);
+        });
+      }
+
+      // Initial update of the doctors list
+      updateDoctorsList();
+
+      // Attach event listener to the "Add Doctor" button
+      const addDoctorButton = document.getElementById("add-doctor-button");
+      addDoctorButton.addEventListener("click", addDoctor);
+    });
+  </script>
+</head>
+<body>
+  <!-- (previous body content remains unchanged) -->
+
+  <main>
+    <div class="container">
+      <!-- Doctors Section -->
+      <section id="doctors" class="card">
+        <h2>Doctors</h2>
+        <ul id="doctors-list">
+          <!-- Doctors will be dynamically added here -->
+        </ul>
+        <button id="add-doctor-button">Add Doctor</button>
+      </section>
+
+      <!-- (previous sections remain unchanged) -->
+
+    </div>
+  </main>
+
+  <!-- (previous footer content remains unchanged) -->
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- (previous head content remains unchanged) -->
+
+  <style>
+    /* Add some styles for modal dialogs */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .modal-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+    }
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // (previous JavaScript code remains unchanged)
+
+      // Function to open the modal for adding a new patient
+      function openAddPatientModal() {
+        const newName = prompt("Enter patient name:");
+        const newAge = prompt("Enter patient age:");
+        const newCondition = prompt("Enter patient condition:");
+
+        const newPatient = {
+          id: patients.length + 1,
+          name: newName,
+          age: parseInt(newAge),
+          condition: newCondition,
+        };
+
+        patients.push(newPatient);
+        updatePatientsList();
+      }
+
+      // Function to open the modal for adding a new doctor
+      function openAddDoctorModal() {
+        const newName = prompt("Enter doctor name:");
+        const newSpecialization = prompt("Enter doctor specialization:");
+
+        const newDoctor = {
+          id: doctors.length + 1,
+          name: newName,
+          specialization: newSpecialization,
+        };
+
+        doctors.push(newDoctor);
+        updateDoctorsList();
+      }
+
+      // Function to open the modal for adding a new appointment
+      function openAddAppointmentModal() {
+        const newDoctorId = prompt("Enter doctor ID:");
+        const newPatientId = prompt("Enter patient ID:");
+        const newDate = prompt("Enter appointment date (YYYY-MM-DD):");
+        const newTime = prompt("Enter appointment time:");
+
+        const newAppointment = {
+          id: appointments.length + 1,
+          doctorId: parseInt(newDoctorId),
+          patientId: parseInt(newPatientId),
+          date: newDate,
+          time: newTime,
+        };
+
+        appointments.push(newAppointment);
+        updateAppointmentsList();
+      }
+
+      // (previous update functions remain unchanged)
+
+      // Attach event listeners to the "Add" buttons
+      const addPatientButton = document.getElementById("add-patient-button");
+      addPatientButton.addEventListener("click", openAddPatientModal);
+
+      const addDoctorButton = document.getElementById("add-doctor-button");
+      addDoctorButton.addEventListener("click", openAddDoctorModal);
+
+      const addAppointmentButton = document.getElementById("add-appointment-button");
+      addAppointmentButton.addEventListener("click", openAddAppointmentModal);
+    });
+  </script>
+</head>
+<body>
+  <!-- (previous body content remains unchanged) -->
+
+  <main>
+    <div class="container">
+      <!-- (previous sections remain unchanged) -->
+
+      <!-- Add modal dialogs for adding patients and doctors -->
+      <div id="add-patient-modal" class="modal">
+        <div class="modal-content">
+          <!-- You can customize the modal content here -->
+          <p>New Patient Added!</p>
+        </div>
+      </div>
+
+      <div id="add-doctor-modal" class="modal">
+        <div class="modal-content">
+          <!-- You can customize the modal content here -->
+          <p>New Doctor Added!</p>
+        </div>
+      </div>
+
+      <!-- (previous modal for adding appointments remains unchanged) -->
+    </div>
+  </main>
+
+  <!-- (previous footer content remains unchanged) -->
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- (previous head content remains unchanged) -->
+
+  <style>
+    /* Add some styles for appointment display */
+    .appointments-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .appointment-card {
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 1em;
+      border-radius: 8px;
+      width: calc(33.33% - 20px); /* Adjust the width as needed */
+      margin-bottom: 20px;
+    }
+
+    .appointment-card:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    /* (previous styles remain unchanged) */
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // (previous JavaScript code remains unchanged)
+
+      // Function to open the modal for viewing appointment details
+      function viewAppointmentDetails(appointmentId) {
+        const selectedAppointment = appointments.find(appointment => appointment.id === appointmentId);
+
+        if (selectedAppointment) {
+          const selectedDoctor = doctors.find(doctor => doctor.id === selectedAppointment.doctorId);
+          const selectedPatient = patients.find(patient => patient.id === selectedAppointment.patientId);
+
+          alert(`Appointment Details:\nDoctor: ${selectedDoctor.name}\nPatient: ${selectedPatient.name}\nDate: ${selectedAppointment.date}\nTime: ${selectedAppointment.time}`);
+        } else {
+          alert("Appointment not found.");
+        }
+      }
+
+      // (previous update functions remain unchanged)
+
+      // Function to update the appointments display
+      function updateAppointmentsDisplay() {
+        const appointmentsContainer = document.getElementById("appointments-container");
+
+        // Clear existing display
+        appointmentsContainer.innerHTML = "";
+
+        // Populate the display with updated appointment data
+        appointments.forEach(appointment => {
+          const doctor = doctors.find(d => d.id === appointment.doctorId);
+          const patient = patients.find(p => p.id === appointment.patientId);
+
+          const card = document.createElement("div");
+          card.className = "appointment-card";
+          card.innerHTML = `
+            <p><strong>Doctor:</strong> ${doctor.name}</p>
+            <p><strong>Patient:</strong> ${patient.name}</p>
+            <p><strong>Date:</strong> ${appointment.date}</p>
+            <p><strong>Time:</strong> ${appointment.time}</p>
+          `;
+
+          card.addEventListener("click", () => viewAppointmentDetails(appointment.id));
+          appointmentsContainer.appendChild(card);
+        });
+      }
+
+      // Initial update of the appointments display
+      updateAppointmentsDisplay();
+    });
+  </script>
+</head>
+<body>
+  <!-- (previous body content remains unchanged) -->
+
+  <main>
+    <div class="container">
+      <!-- (previous sections remain unchanged) -->
+
+      <!-- Appointments Section with improved display -->
+      <section id="appointments" class="card">
+        <h2>Appointments</h2>
+        <div id="appointments-container" class="appointments-container">
+          <!-- Appointments will be dynamically added here -->
+        </div>
+        <button id="add-appointment-button">Add Appointment</button>
+      </section>
+
+      <!-- (previous modal for adding appointments remains unchanged) -->
+    </div>
+  </main>
+
+  <!-- (previous footer content remains unchanged) -->
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- (previous head content remains unchanged) -->
+
+  <style>
+    /* Updated styles for appointment display */
+    .appointments-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .appointment-card {
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 1em;
+      border-radius: 8px;
+      width: calc(33.33% - 40px); /* Adjust the width as needed */
+      margin-bottom: 20px;
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .appointment-card:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Modal styles */
+    .modal-content {
+      max-width: 400px;
+    }
+
+    /* (previous styles remain unchanged) */
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // (previous JavaScript code remains unchanged)
+
+      // Function to open the modal for adding a new appointment
+      function openAddAppointmentModal() {
+        const newDoctorId = prompt("Enter doctor ID:");
+        const newPatientId = prompt("Enter patient ID:");
+        const newDate = prompt("Enter appointment date (YYYY-MM-DD):");
+        const newTime = prompt("Enter appointment time:");
+
+        const newAppointment = {
+          id: appointments.length + 1,
+          doctorId: parseInt(newDoctorId),
+          patientId: parseInt(newPatientId),
+          date: newDate,
+          time: newTime,
+        };
+
+        appointments.push(newAppointment);
+        updateAppointmentsDisplay();
+      }
+
+      // (previous update functions remain unchanged)
+
+      // Function to update the appointments display
+      function updateAppointmentsDisplay() {
+        const appointmentsContainer = document.getElementById("appointments-container");
+
+        // Clear existing display
+        appointmentsContainer.innerHTML = "";
+
+        // Populate the display with updated appointment data
+        appointments.forEach(appointment => {
+          const doctor = doctors.find(d => d.id === appointment.doctorId);
+          const patient = patients.find(p => p.id === appointment.patientId);
+
+          const card = document.createElement("div");
+          card.className = "appointment-card";
+          card.innerHTML = `
+            <p><strong>Doctor:</strong> ${doctor.name}</p>
+            <p><strong>Patient:</strong> ${patient.name}</p>
+            <p><strong>Date:</strong> ${appointment.date}</p>
+            <p><strong>Time:</strong> ${appointment.time}</p>
+          `;
+
+          card.addEventListener("click", () => viewAppointmentDetails(appointment.id));
+          appointmentsContainer.appendChild(card);
+        });
+      }
+
+      // (previous modal for viewing appointment details remains unchanged)
+
+      // Attach event listener to the "Add Appointment" button
+      const addAppointmentButton = document.getElementById("add-appointment-button");
+      addAppointmentButton.addEventListener("click", openAddAppointmentModal);
+    });
+  </script>
+</head>
+<body>
+  <!-- (previous body content remains unchanged) -->
+
+  <main>
+    <div class="container">
+      <!-- (previous sections remain unchanged) -->
+
+      <!-- Appointments Section with improved responsive design -->
+      <section id="appointments" class="card">
+        <h2>Appointments</h2>
+        <div id="appointments-container" class="appointments-container">
+          <!-- Appointments will be dynamically added here -->
+        </div>
+        <button id="add-appointment-button">Add Appointment</button>
+      </section>
+
+      <!-- (previous modal for adding appointments remains unchanged) -->
+    </div>
+  </main>
+
+  <!-- (previous footer content remains unchanged) -->
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- (previous head content remains unchanged) -->
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // (previous JavaScript code remains unchanged)
+
+      // Function to search for patients
+      function searchPatients() {
+        const searchInput = prompt("Enter patient name to search:");
+
+        if (searchInput) {
+          const searchResults = patients.filter(patient => patient.name.toLowerCase().includes(searchInput.toLowerCase()));
+
+          if (searchResults.length > 0) {
+            alert(`Search Results:\n${searchResults.map(patient => patient.name).join("\n")}`);
+          } else {
+            alert("No matching patients found.");
+          }
+        }
+      }
+
+      // Function to search for doctors
+      function searchDoctors() {
+        const searchInput = prompt("Enter doctor name to search:");
+
+        if (searchInput) {
+          const searchResults = doctors.filter(doctor => doctor.name.toLowerCase().includes(searchInput.toLowerCase()));
+
+          if (searchResults.length > 0) {
+            alert(`Search Results:\n${searchResults.map(doctor => doctor.name).join("\n")}`);
+          } else {
+            alert("No matching doctors found.");
+          }
+        }
+      }
+
+      // Function to display appointment history
+      function displayAppointmentHistory(patientId) {
+        const patientAppointments = appointments.filter(appointment => appointment.patientId === patientId);
+
+        if (patientAppointments.length > 0) {
+          const history = patientAppointments.map(appointment => {
+            const doctor = doctors.find(d => d.id === appointment.doctorId);
+            return `${doctor.name} - ${appointment.date} at ${appointment.time}`;
+          });
+
+          alert(`Appointment History:\n${history.join("\n")}`);
+        } else {
+          alert("No appointments found for this patient.");
+        }
+      }
+
+      // (previous update functions remain unchanged)
+
+      // Attach event listeners to the "Search" buttons
+      const searchPatientsButton = document.getElementById("search-patients-button");
+      searchPatientsButton.addEventListener("click", searchPatients);
+
+      const searchDoctorsButton = document.getElementById("search-doctors-button");
+      searchDoctorsButton.addEventListener("click", searchDoctors);
+    });
+  </script>
+</head>
+<body>
+  <!-- (previous body content remains unchanged) -->
+
+  <main>
+    <div class="container">
+      <!-- (previous sections remain unchanged) -->
+
+      <!-- Add search buttons and appointment history functionality -->
+      <button id="search-patients-button">Search Patients</button>
+      <button id="search-doctors-button">Search Doctors</button>
+
+      <!-- (previous sections remain unchanged) -->
+    </div>
+  </main>
+
+  <!-- (previous footer content remains unchanged) -->
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- (previous head content remains unchanged) -->
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // (previous JavaScript code remains unchanged)
+
+      // Function to update patient information
+      function updatePatientInfo(patientId) {
+        const patientToUpdate = patients.find(patient => patient.id === patientId);
+
+        if (patientToUpdate) {
+          const newName = prompt(`Enter new name for ${patientToUpdate.name}:`);
+          const newAge = prompt(`Enter new age for ${patientToUpdate.name}:`);
+          const newCondition = prompt(`Enter new condition for ${patientToUpdate.name}:`);
+
+          // Update patient information
+          patientToUpdate.name = newName || patientToUpdate.name;
+          patientToUpdate.age = newAge ? parseInt(newAge) : patientToUpdate.age;
+          patientToUpdate.condition = newCondition || patientToUpdate.condition;
+
+          updatePatientsList();
+        } else {
+          alert("Patient not found.");
+        }
+      }
+
+      // Function to delete a patient record
+      function deletePatient(patientId) {
+        const confirmDelete = confirm("Are you sure you want to delete this patient record?");
+
+        if (confirmDelete) {
+          const patientIndex = patients.findIndex(patient => patient.id === patientId);
+
+          if (patientIndex !== -1) {
+            // Remove the patient from the array
+            patients.splice(patientIndex, 1);
+            updatePatientsList();
+          } else {
+            alert("Patient not found.");
+          }
+        }
+      }
+
+      // Function to view doctor details
+      function viewDoctorDetails(doctorId) {
+        const selectedDoctor = doctors.find(doctor => doctor.id === doctorId);
+
+        if (selectedDoctor) {
+          alert(`Doctor Details:\nName: ${selectedDoctor.name}\nSpecialization: ${selectedDoctor.specialization}`);
+        } else {
+          alert("Doctor not found.");
+        }
+      }
+
+      // (previous update functions remain unchanged)
+
+      // Attach event listeners for updating and deleting patient records
+      const updatePatientButton = document.getElementById("update-patient-button");
+      updatePatientButton.addEventListener("click", function () {
+        const patientId = prompt("Enter the ID of the patient you want to update:");
+        updatePatientInfo(parseInt(patientId));
+      });
+
+      const deletePatientButton = document.getElementById("delete-patient-button");
+      deletePatientButton.addEventListener("click", function () {
+        const patientId = prompt("Enter the ID of the patient you want to delete:");
+        deletePatient(parseInt(patientId));
+      });
+
+      // Attach event listener to the "View Doctor Details" button
+      const viewDoctorDetailsButton = document.getElementById("view-doctor-details-button");
+      viewDoctorDetailsButton.addEventListener("click", function () {
+        const doctorId = prompt("Enter the ID of the doctor you want to view details for:");
+        viewDoctorDetails(parseInt(doctorId));
+      });
+    });
+  </script>
+</head>
+<body>
+  <!-- (previous body content remains unchanged) -->
+
+  <main>
+    <div class="container">
+      <!-- (previous sections remain unchanged) -->
+
+      <!-- Add buttons for updating and deleting patient records -->
+      <button id="update-patient-button">Update Patient</button>
+      <button id="delete-patient-button">Delete Patient</button>
+
+      <!-- Add button to view doctor details -->
+      <button id="view-doctor-details-button">View Doctor Details</button>
+
+      <!-- (previous sections remain unchanged) -->
+    </div>
+  </main>
+
+  <!-- (previous footer content remains unchanged) -->
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- (previous head content remains unchanged) -->
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // (previous JavaScript code remains unchanged)
+
+      // Function to update doctor information
+      function updateDoctorInfo(doctorId) {
+        const doctorToUpdate = doctors.find(doctor => doctor.id === doctorId);
+
+        if (doctorToUpdate) {
+          const newName = prompt(`Enter new name for Dr. ${doctorToUpdate.name}:`);
+          const newSpecialization = prompt(`Enter new specialization for Dr. ${doctorToUpdate.name}:`);
+
+          // Update doctor information
+          doctorToUpdate.name = newName || doctorToUpdate.name;
+          doctorToUpdate.specialization = newSpecialization || doctorToUpdate.specialization;
+
+          updateDoctorsList();
+        } else {
+          alert("Doctor not found.");
+        }
+      }
+
+      // Function to delete a doctor record
+      function deleteDoctor(doctorId) {
+        const confirmDelete = confirm("Are you sure you want to delete this doctor record?");
+
+        if (confirmDelete) {
+          const doctorIndex = doctors.findIndex(doctor => doctor.id === doctorId);
+
+          if (doctorIndex !== -1) {
+            // Remove the doctor from the array
+            doctors.splice(doctorIndex, 1);
+            updateDoctorsList();
+          } else {
+            alert("Doctor not found.");
+          }
+        }
+      }
+
+      // Function to view appointment details
+      function viewAppointmentDetails(appointmentId) {
+        const selectedAppointment = appointments.find(appointment => appointment.id === appointmentId);
+
+        if (selectedAppointment) {
+          const selectedDoctor = doctors.find(doctor => doctor.id === selectedAppointment.doctorId);
+          const selectedPatient = patients.find(patient => patient.id === selectedAppointment.patientId);
+
+          alert(`Appointment Details:\nDoctor: ${selectedDoctor.name}\nPatient: ${selectedPatient.name}\nDate: ${selectedAppointment.date}\nTime: ${selectedAppointment.time}`);
+        } else {
+          alert("Appointment not found.");
+        }
+      }
+
+      // (previous update functions remain unchanged)
+
+      // Attach event listeners for updating and deleting doctor records
+      const updateDoctorButton = document.getElementById("update-doctor-button");
+      updateDoctorButton.addEventListener("click", function () {
+        const doctorId = prompt("Enter the ID of the doctor you want to update:");
+        updateDoctorInfo(parseInt(doctorId));
+      });
+
+      const deleteDoctorButton = document.getElementById("delete-doctor-button");
+      deleteDoctorButton.addEventListener("click", function () {
+        const doctorId = prompt("Enter the ID of the doctor you want to delete:");
+        deleteDoctor(parseInt(doctorId));
+      });
+
+      // Attach event listener to the "View Appointment Details" button
+      const viewAppointmentDetailsButton = document.getElementById("view-appointment-details-button");
+      viewAppointmentDetailsButton.addEventListener("click", function () {
+        const appointmentId = prompt("Enter the ID of the appointment you want to view details for:");
+        viewAppointmentDetails(parseInt(appointmentId));
+      });
+    });
+  </script>
+</head>
+<body>
+  <!-- (previous body content remains unchanged) -->
+
+  <main>
+    <div class="container">
+      <!-- (previous sections remain unchanged) -->
+
+      <!-- Add buttons for updating and deleting doctor records -->
+      <button id="update-doctor-button">Update Doctor</button>
+      <button id="delete-doctor-button">Delete Doctor</button>
+
+      <!-- Add button to view appointment details -->
+      <button id="view-appointment-details-button">View Appointment Details</button>
+
+      <!-- (previous sections remain unchanged) -->
+    </div>
+  </main>
+
+  <!-- (previous footer content remains unchanged) -->
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- (previous head content remains unchanged) -->
+
+  <style>
+    /* Add some styles for improved appearance */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px;
+      margin: 5px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    /* (previous styles remain unchanged) */
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // (previous JavaScript code remains unchanged)
+
+      // Function to sort patients alphabetically
+      function sortPatients() {
+        patients.sort((a, b) => a.name.localeCompare(b.name));
+        updatePatientsList();
+      }
+
+      // Function to sort doctors alphabetically
+      function sortDoctors() {
+        doctors.sort((a, b) => a.name.localeCompare(b.name));
+        updateDoctorsList();
+      }
+
+      // Function to sort appointments by date and time
+      function sortAppointments() {
+        appointments.sort((a, b) => {
+          const dateComparison = a.date.localeCompare(b.date);
+          return dateComparison !== 0 ? dateComparison : a.time.localeCompare(b.time);
+        });
+        updateAppointmentsDisplay();
+      }
+
+      // (previous update functions remain unchanged)
+
+      // Attach event listeners for sorting functionality
+      const sortPatientsButton = document.getElementById("sort-patients-button");
+      sortPatientsButton.addEventListener("click", sortPatients);
+
+      const sortDoctorsButton = document.getElementById("sort-doctors-button");
+      sortDoctorsButton.addEventListener("click", sortDoctors);
+
+      const sortAppointmentsButton = document.getElementById("sort-appointments-button");
+      sortAppointmentsButton.addEventListener("click", sortAppointments);
+    });
+  </script>
+</head>
+<body>
+  <!-- (previous body content remains unchanged) -->
+
+  <main>
+    <div class="container">
+      <!-- (previous sections remain unchanged) -->
+
+      <!-- Add buttons for sorting patients, doctors, and appointments -->
+      <button id="sort-patients-button">Sort Patients</button>
+      <button id="sort-doctors-button">Sort Doctors</button>
+      <button id="sort-appointments-button">Sort Appointments</button>
+
+      <!-- (previous sections remain unchanged) -->
+    </div>
+  </main>
+
+  <!-- (previous footer content remains unchanged) -->
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- (previous head content remains unchanged) -->
+
+  <style>
+    /* (previous styles remain unchanged) */
+
+    .pagination {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+
+    .page-item {
+      margin-right: 5px;
+    }
+
+    .page-link {
+      text-decoration: none;
+      background-color: #4CAF50;
+      color: white;
+      padding: 8px 12px;
+      border: 1px solid #4CAF50;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .page-link:hover {
+      background-color: #45a049;
+      border: 1px solid #45a049;
+    }
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // (previous JavaScript code remains unchanged)
+
+      const itemsPerPage = 5; // Number of items to display per page
+
+      // Function to render paginated patient list
+      function renderPatientsPage(page) {
+        const startIndex = (page - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        const paginatedPatients = patients.slice(startIndex, endIndex);
+        updatePatientsList(paginatedPatients);
+      }
+
+      // Function to render paginated doctor list
+      function renderDoctorsPage(page) {
+        const startIndex = (page - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        const paginatedDoctors = doctors.slice(startIndex, endIndex);
+        updateDoctorsList(paginatedDoctors);
+      }
+
+      // Function to render paginated appointment list
+      function renderAppointmentsPage(page) {
+        const startIndex = (page - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        const paginatedAppointments = appointments.slice(startIndex, endIndex);
+        updateAppointmentsDisplay(paginatedAppointments);
+      }
+
+      // Function to handle pagination button click
+      function handlePaginationClick(page, listType) {
+        if (listType === 'patients') {
+          renderPatientsPage(page);
+        } else if (listType === 'doctors') {
+          renderDoctorsPage(page);
+        } else if (listType === 'appointments') {
+          renderAppointmentsPage(page);
+        }
+      }
+
+      // Function to generate pagination buttons
+      function generatePaginationButtons(totalPages, listType) {
+        const paginationContainer = document.getElementById(`${listType}-pagination`);
+        paginationContainer.innerHTML = "";
+
+        for (let i = 1; i <= totalPages; i++) {
+          const pageItem = document.createElement("li");
+          pageItem.className = "page-item";
+
+          const pageLink = document.createElement("a");
+          pageLink.className = "page-link";
+          pageLink.textContent = i;
+          pageLink.href = "#";
+          pageLink.addEventListener("click", () => handlePaginationClick(i, listType));
+
+          pageItem.appendChild(pageLink);
+          paginationContainer.appendChild(pageItem);
+        }
+      }
+
+      // Function to initialize pagination
+      function initializePagination(totalItems, listType) {
+        const totalPages = Math.ceil(totalItems / itemsPerPage);
+        generatePaginationButtons(totalPages, listType);
+        handlePaginationClick(1, listType); // Display the first page by default
+      }
+
+      // Initialize pagination for patients, doctors, and appointments
+      initializePagination(patients.length, 'patients');
+      initializePagination(doctors.length, 'doctors');
+      initializePagination(appointments.length, 'appointments');
+    });
+  </script>
+</head>
+<body>
+  <!-- (previous body content remains unchanged) -->
+
+  <main>
+    <div class="container">
+      <!-- (previous sections remain unchanged) -->
+
+      <!-- Add pagination for patients, doctors, and appointments -->
+      <ul id="patients-pagination" class="pagination"></ul>
+      <ul id="doctors-pagination" class="pagination"></ul>
+      <ul id="appointments-pagination" class="pagination"></ul>
+
+      <!-- (previous sections remain unchanged) -->
+    </div>
+  </main>
+
+  <!-- (previous footer content remains unchanged) -->
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- (previous head content remains unchanged) -->
+
+  <style>
+    /* Updated styles for improved appearance */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px;
+      margin: 5px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    /* (previous styles remain unchanged) */
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 400px;
+    }
+
+    .close-button {
+      background-color: #d9534f;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .close-button:hover {
+      background-color: #c9302c;
+    }
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // (previous JavaScript code remains unchanged)
+
+      // Function to open the modal
+      function openModal(modalId) {
+        const modal = document.getElementById(modalId);
+        modal.style.display = "flex";
+      }
+
+      // Function to close the modal
+      function closeModal(modalId) {
+        const modal = document.getElementById(modalId);
+        modal.style.display = "none";
+      }
+
+      // Attach event listeners to open and close modals
+      const addPatientButton = document.getElementById("add-patient-button");
+      const updatePatientButton = document.getElementById("update-patient-button");
+      const addDoctorButton = document.getElementById("add-doctor-button");
+      const updateDoctorButton = document.getElementById("update-doctor-button");
+      const addAppointmentButton = document.getElementById("add-appointment-button");
+      const updateAppointmentButton = document.getElementById("update-appointment-button");
+
+      const closePatientModalButton = document.getElementById("close-patient-modal-button");
+      const closeDoctorModalButton = document.getElementById("close-doctor-modal-button");
+      const closeAppointmentModalButton = document.getElementById("close-appointment-modal-button");
+
+      addPatientButton.addEventListener("click", () => openModal("addPatientModal"));
+      updatePatientButton.addEventListener("click", () => openModal("updatePatientModal"));
+      addDoctorButton.addEventListener("click", () => openModal("addDoctorModal"));
+      updateDoctorButton.addEventListener("click", () => openModal("updateDoctorModal"));
+      addAppointmentButton.addEventListener("click", () => openModal("addAppointmentModal"));
+      updateAppointmentButton.addEventListener("click", () => openModal("updateAppointmentModal"));
+
+      closePatientModalButton.addEventListener("click", () => closeModal("addPatientModal"));
+      closeDoctorModalButton.addEventListener("click", () => closeModal("addDoctorModal"));
+      closeAppointmentModalButton.addEventListener("click", () => closeModal("addAppointmentModal"));
+    });
+  </script>
+</head>
+<body>
+  <!-- (previous body content remains unchanged) -->
+
+  <main>
+    <div class="container">
+      <!-- (previous sections remain unchanged) -->
+
+      <!-- Modal for adding patients -->
+      <div id="addPatientModal" class="modal">
+        <div class="modal-content">
+          <!-- Add patient form goes here -->
+          <button id="close-patient-modal-button" class="close-button">Close</button>
+        </div>
+      </div>
+
+      <!-- Modal for adding doctors -->
+      <div id="addDoctorModal" class="modal">
+        <div class="modal-content">
+          <!-- Add doctor form goes here -->
+          <button id="close-doctor-modal-button" class="close-button">Close</button>
+        </div>
+      </div>
+
+      <!-- Modal for adding appointments -->
+      <div id="addAppointmentModal" class="modal">
+        <div class="modal-content">
+          <!-- Add appointment form goes here -->
+          <button id="close-appointment-modal-button" class="close-button">Close</button>
+        </div>
+      </div>
+
+      <!-- (previous sections remain unchanged) -->
+    </div>
+  </main>
+
+  <!-- (previous footer content remains unchanged) -->
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- (previous head content remains unchanged) -->
+
+  <style>
+    /* (previous styles remain unchanged) */
+
+    /* Add styling for form elements */
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 8px;
+    }
+
+    input, select {
+      padding: 8px;
+      margin-bottom: 12px;
+    }
+
+    /* (previous modal styles remain unchanged) */
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // (previous JavaScript code remains unchanged)
+
+      // Function to validate the patient form
+      function validatePatientForm() {
+        const name = document.getElementById("patientName").value;
+        const age = document.getElementById("patientAge").value;
+
+        if (!name || !age || isNaN(age)) {
+          alert("Please provide valid patient information.");
+          return false;
+        }
+
+        return true;
+      }
+
+      // Function to validate the doctor form
+      function validateDoctorForm() {
+        const name = document.getElementById("doctorName").value;
+        const specialization = document.getElementById("doctorSpecialization").value;
+
+        if (!name || !specialization) {
+          alert("Please provide valid doctor information.");
+          return false;
+        }
+
+        return true;
+      }
+
+      // Function to validate the appointment form
+      function validateAppointmentForm() {
+        const doctorId = document.getElementById("appointmentDoctor").value;
+        const patientId = document.getElementById("appointmentPatient").value;
+        const date = document.getElementById("appointmentDate").value;
+        const time = document.getElementById("appointmentTime").value;
+
+        if (!doctorId || !patientId || !date || !time) {
+          alert("Please provide valid appointment information.");
+          return false;
+        }
+
+        return true;
+      }
+
+      // Attach event listener for form submission
+      const patientForm = document.getElementById("patientForm");
+      const doctorForm = document.getElementById("doctorForm");
+      const appointmentForm = document.getElementById("appointmentForm");
+
+      patientForm.addEventListener("submit", function (event) {
+        if (!validatePatientForm()) {
+          event.preventDefault();
+        }
+      });
+
+      doctorForm.addEventListener("submit", function (event) {
+        if (!validateDoctorForm()) {
+          event.preventDefault();
+        }
+      });
+
+      appointmentForm.addEventListener("submit", function (event) {
+        if (!validateAppointmentForm()) {
+          event.preventDefault();
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  <!-- (previous body content remains unchanged) -->
+
+  <main>
+    <div class="container">
+      <!-- (previous sections remain unchanged) -->
+
+      <!-- Modal for adding patients -->
+      <div id="addPatientModal" class="modal">
+        <div class="modal-content">
+          <form id="patientForm">
+            <label for="patientName">Patient Name:</label>
+            <input type="text" id="patientName" name="patientName" required>
+
+            <label for="patientAge">Patient Age:</label>
+            <input type="number" id="patientAge" name="patientAge" required>
+
+            <button type="submit">Add Patient</button>
+          </form>
+
+          <button id="close-patient-modal-button" class="close-button">Close</button>
+        </div>
+      </div>
+
+      <!-- Modal for adding doctors -->
+      <div id="addDoctorModal" class="modal">
+        <div class="modal-content">
+          <form id="doctorForm">
+            <label for="doctorName">Doctor Name:</label>
+            <input type="text" id="doctorName" name="doctorName" required>
+
+            <label for="doctorSpecialization">Doctor Specialization:</label>
+            <input type="text" id="doctorSpecialization" name="doctorSpecialization" required>
+
+            <button type="submit">Add Doctor</button>
+          </form>
+
+          <button id="close-doctor-modal-button" class="close-button">Close</button>
+        </div>
+      </div>
+
+      <!-- Modal for adding appointments -->
+      <div id="addAppointmentModal" class="modal">
+        <div class="modal-content">
+          <form id="appointmentForm">
+            <label for="appointmentDoctor">Doctor:</label>
+            <select id="appointmentDoctor" name="appointmentDoctor" required>
+              <!-- Add options dynamically using JavaScript -->
+            </select>
+
+            <label for="appointmentPatient">Patient:</label>
+            <select id="appointmentPatient" name="appointmentPatient" required>
+              <!-- Add options dynamically using JavaScript -->
+            </select>
+
+            <label for="appointmentDate">Date:</label>
+            <input type="date" id="appointmentDate" name="appointmentDate" required>
+
+            <label for="appointmentTime">Time:</label>
+            <input type="time" id="appointmentTime" name="appointmentTime" required>
+
+            <button type="submit">Add Appointment</button>
+          </form>
+
+          <button id="close-appointment-modal-button" class="close-button">Close</button>
+        </div>
+      </div>
+
+      <!-- (previous sections remain unchanged) -->
+    </div>
+  </main>
+
+  <!-- (previous footer content remains unchanged) -->
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- (previous head content remains unchanged) -->
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // (previous JavaScript code remains unchanged)
+
+      // Function to update patient information in the form
+      function updatePatientForm(patientId) {
+        const patientToUpdate = patients.find(patient => patient.id === patientId);
+
+        if (patientToUpdate) {
+          document.getElementById("updatePatientName").value = patientToUpdate.name;
+          document.getElementById("updatePatientAge").value = patientToUpdate.age;
+        }
+      }
+
+      // Function to update doctor information in the form
+      function updateDoctorForm(doctorId) {
+        const doctorToUpdate = doctors.find(doctor => doctor.id === doctorId);
+
+        if (doctorToUpdate) {
+          document.getElementById("updateDoctorName").value = doctorToUpdate.name;
+          document.getElementById("updateDoctorSpecialization").value = doctorToUpdate.specialization;
+        }
+      }
+
+      // Function to update appointment information in the form
+      function updateAppointmentForm(appointmentId) {
+        const appointmentToUpdate = appointments.find(appointment => appointment.id === appointmentId);
+
+        if (appointmentToUpdate) {
+          document.getElementById("updateAppointmentDoctor").value = appointmentToUpdate.doctorId;
+          document.getElementById("updateAppointmentPatient").value = appointmentToUpdate.patientId;
+          document.getElementById("updateAppointmentDate").value = appointmentToUpdate.date;
+          document.getElementById("updateAppointmentTime").value = appointmentToUpdate.time;
+        }
+      }
+
+      // Attach event listeners for updating patient, doctor, and appointment forms
+      const updatePatientButton = document.getElementById("updatePatientButton");
+      const updateDoctorButton = document.getElementById("updateDoctorButton");
+      const updateAppointmentButton = document.getElementById("updateAppointmentButton");
+
+      updatePatientButton.addEventListener("click", function () {
+        const patientId = prompt("Enter the ID of the patient you want to update:");
+        updatePatientForm(parseInt(patientId));
+        openModal("updatePatientModal");
+      });
+
+      updateDoctorButton.addEventListener("click", function () {
+        const doctorId = prompt("Enter the ID of the doctor you want to update:");
+        updateDoctorForm(parseInt(doctorId));
+        openModal("updateDoctorModal");
+      });
+
+      updateAppointmentButton.addEventListener("click", function () {
+        const appointmentId = prompt("Enter the ID of the appointment you want to update:");
+        updateAppointmentForm(parseInt(appointmentId));
+        openModal("updateAppointmentModal");
+      });
+    });
+  </script>
+</head>
+<body>
+  <!-- (previous body content remains unchanged) -->
+
+  <main>
+    <div class="container">
+      <!-- (previous sections remain unchanged) -->
+
+      <!-- Modal for updating patients -->
+      <div id="updatePatientModal" class="modal">
+        <div class="modal-content">
+          <form id="updatePatientForm">
+            <label for="updatePatientName">Patient Name:</label>
+            <input type="text" id="updatePatientName" name="updatePatientName" required>
+
+            <label for="updatePatientAge">Patient Age:</label>
+            <input type="number" id="updatePatientAge" name="updatePatientAge" required>
+
+            <button type="submit">Update Patient</button>
+          </form>
+
+          <button id="close-update-patient-modal-button" class="close-button">Close</button>
+        </div>
+      </div>
+
+      <!-- Modal for updating doctors -->
+      <div id="updateDoctorModal" class="modal">
+        <div class="modal-content">
+          <form id="updateDoctorForm">
+            <label for="updateDoctorName">Doctor Name:</label>
+            <input type="text" id="updateDoctorName" name="updateDoctorName" required>
+
+            <label for="updateDoctorSpecialization">Doctor Specialization:</label>
+            <input type="text" id="updateDoctorSpecialization" name="updateDoctorSpecialization" required>
+
+            <button type="submit">Update Doctor</button>
+          </form>
+
+          <button id="close-update-doctor-modal-button" class="close-button">Close</button>
+        </div>
+      </div>
+
+      <!-- Modal for updating appointments -->
+      <div id="updateAppointmentModal" class="modal">
+        <div class="modal-content">
+          <form id="updateAppointmentForm">
+            <label for="updateAppointmentDoctor">Doctor:</label>
+            <select id="updateAppointmentDoctor" name="updateAppointmentDoctor" required>
+              <!-- Add options dynamically using JavaScript -->
+            </select>
+
+            <label for="updateAppointmentPatient">Patient:</label>
+            <select id="updateAppointmentPatient" name="updateAppointmentPatient" required>
+              <!-- Add options dynamically using JavaScript -->
+            </select>
+
+            <label for="updateAppointmentDate">Date:</label>
+            <input type="date" id="updateAppointmentDate" name="updateAppointmentDate" required>
+
+            <label for="updateAppointmentTime">Time:</label>
+            <input type="time" id="updateAppointmentTime" name="updateAppointmentTime" required>
+
+            <button type="submit">Update Appointment</button>
+          </form>
+
+          <button id="close-update-appointment-modal-button" class="close-button">Close</button>
+        </div>
+      </div>
+
+      <!-- (previous sections remain unchanged) -->
+    </div>
+  </main>
+
+  <!-- (previous footer content remains unchanged) -->
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- (previous head content remains unchanged) -->
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // (previous JavaScript code remains unchanged)
+
+      // Function to handle patient form submission
+      function submitPatientForm() {
+        const name = document.getElementById("patientName").value;
+        const age = document.getElementById("patientAge").value;
+
+        // Simulate server-side submission
+        const newPatient = {
+          id: patients.length + 1,
+          name: name,
+          age: parseInt(age),
+        };
+
+        // Add the new patient to the list
+        patients.push(newPatient);
+        updatePatientsList();
+
+        // Close the modal
+        closeModal("addPatientModal");
+      }
+
+      // Function to handle doctor form submission
+      function submitDoctorForm() {
+        const name = document.getElementById("doctorName").value;
+        const specialization = document.getElementById("doctorSpecialization").value;
+
+        // Simulate server-side submission
+        const newDoctor = {
+          id: doctors.length + 1,
+          name: name,
+          specialization: specialization,
+        };
+
+        // Add the new doctor to the list
+        doctors.push(newDoctor);
+        updateDoctorsList();
+
+        // Close the modal
+        closeModal("addDoctorModal");
+      }
+
+      // Function to handle appointment form submission
+      function submitAppointmentForm() {
+        const doctorId = document.getElementById("appointmentDoctor").value;
+        const patientId = document.getElementById("appointmentPatient").value;
+        const date = document.getElementById("appointmentDate").value;
+        const time = document.getElementById("appointmentTime").value;
+
+        // Simulate server-side submission
+        const newAppointment = {
+          id: appointments.length + 1,
+          doctorId: parseInt(doctorId),
+          patientId: parseInt(patientId),
+          date: date,
+          time: time,
+        };
+
+        // Add the new appointment to the list
+        appointments.push(newAppointment);
+        updateAppointmentsDisplay();
+
+        // Close the modal
+        closeModal("addAppointmentModal");
+      }
+
+      // Attach event listener for form submissions
+      const patientForm = document.getElementById("patientForm");
+      const doctorForm = document.getElementById("doctorForm");
+      const appointmentForm = document.getElementById("appointmentForm");
+
+      patientForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        submitPatientForm();
+      });
+
+      doctorForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        submitDoctorForm();
+      });
+
+      appointmentForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        submitAppointmentForm();
+      });
+
+      // Function to handle patient update form submission
+      function submitUpdatePatientForm() {
+        const updatedName = document.getElementById("updatePatientName").value;
+        const updatedAge = document.getElementById("updatePatientAge").value;
+
+        // Simulate server-side update
+        const patientId = parseInt(document.getElementById("patientId").value);
+        const patientToUpdate = patients.find(patient => patient.id === patientId);
+
+        if (patientToUpdate) {
+          patientToUpdate.name = updatedName;
+          patientToUpdate.age = parseInt(updatedAge);
+          updatePatientsList();
+        }
+
+        // Close the modal
+        closeModal("updatePatientModal");
+      }
+
+      // Function to handle doctor update form submission
+      function submitUpdateDoctorForm() {
+        const updatedName = document.getElementById("updateDoctorName").value;
+        const updatedSpecialization = document.getElementById("updateDoctorSpecialization").value;
+
+        // Simulate server-side update
+        const doctorId = parseInt(document.getElementById("doctorId").value);
+        const doctorToUpdate = doctors.find(doctor => doctor.id === doctorId);
+
+        if (doctorToUpdate) {
+          doctorToUpdate.name = updatedName;
+          doctorToUpdate.specialization = updatedSpecialization;
+          updateDoctorsList();
+        }
+
+        // Close the modal
+        closeModal("updateDoctorModal");
+      }
+
+      // Function to handle appointment update form submission
+      function submitUpdateAppointmentForm() {
+        const updatedDoctorId = document.getElementById("updateAppointmentDoctor").value;
+        const updatedPatientId = document.getElementById("updateAppointmentPatient").value;
+        const updatedDate = document.getElementById("updateAppointmentDate").value;
+        const updatedTime = document.getElementById("updateAppointmentTime").value;
+
+        // Simulate server-side update
+        const appointmentId = parseInt(document.getElementById("appointmentId").value);
+        const appointmentToUpdate = appointments.find(appointment => appointment.id === appointmentId);
+
+        if (appointmentToUpdate) {
+          appointmentToUpdate.doctorId = parseInt(updatedDoctorId);
+          appointmentToUpdate.patientId = parseInt(updatedPatientId);
+          appointmentToUpdate.date = updatedDate;
+          appointmentToUpdate.time = updatedTime;
+          updateAppointmentsDisplay();
+        }
+
+        // Close the modal
+        closeModal("updateAppointmentModal");
+      }
+
+      // Attach event listener for update form submissions
+      const updatePatientForm = document.getElementById("updatePatientForm");
+      const updateDoctorForm = document.getElementById("updateDoctorForm");
+      const updateAppointmentForm = document.getElementById("updateAppointmentForm");
+
+      updatePatientForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        submitUpdatePatientForm();
+      });
+
+      updateDoctorForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        submitUpdateDoctorForm();
+      });
+
+      updateAppointmentForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        submitUpdateAppointmentForm();
+      });
+    });
+  </script>
+</head>
+<body>
+  <!-- (previous body content remains unchanged) -->
+
+  <main>
+    <div class="container">
+      <!-- (previous sections remain unchanged) -->
+
+      <!-- Modal for updating patients -->
+      <div id="updatePatientModal" class="modal">
+        <div class="modal-content">
+          <form id="updatePatientForm">
+            <label for="updatePatientName">Patient Name:</label>
+            <input type="text" id="updatePatientName" name="updatePatientName" required>
+
+            <label for="updatePatientAge">Patient Age:</label>
+            <input type="number" id="updatePatientAge" name="updatePatientAge" required>
+
+            <input type="hidden" id="patientId" name="patientId">
+
+            <button type="submit">Update Patient</button>
+          </form>
+
+          <button id="close-update-patient-modal-button" class="close-button">Close</button>
+        </div>
+      </div>
+
+      <!-- Modal for updating doctors -->
+      <div id="updateDoctorModal" class="modal">
+        <div class="modal-content">
+          <form id="updateDoctorForm">
+            <label for="updateDoctorName">Doctor Name:</label>
+            <input type="text" id="updateDoctorName" name="updateDoctorName" required>
+
+            <label for="updateDoctorSpecialization">Doctor Specialization:</label>
+            <input type="text" id="updateDoctorSpecialization" name="updateDoctorSpecialization" required>
+
+            <input type="hidden" id="doctorId" name="doctorId">
+
+            <button type="submit">Update Doctor</button>
+          </form>
+
+          <button id="close-update-doctor-modal-button" class="close-button">Close</button>
+        </div>
+      </div>
+
+      <!-- Modal for updating appointments -->
+      <div id="updateAppointmentModal" class="modal">
+        <div class="modal-content">
+          <form id="updateAppointmentForm">
+            <label for="updateAppointmentDoctor">Doctor:</label>
+            <select id="updateAppointmentDoctor" name="updateAppointmentDoctor" required>
+              <!-- Add options dynamically using JavaScript -->
+            </select>
+
+            <label for="updateAppointmentPatient">Patient:</label>
+            <select id="updateAppointmentPatient" name="updateAppointmentPatient" required>
+              <!-- Add options dynamically using JavaScript -->
+            </select>
+
+            <label for="updateAppointmentDate">Date:</label>
+            <input type="date" id="updateAppointmentDate" name="updateAppointmentDate" required>
+
+            <label for="updateAppointmentTime">Time:</label>
+            <input type="time" id="updateAppointmentTime" name="updateAppointmentTime" required>
+
+            <input type="hidden" id="appointmentId" name="appointmentId">
+
+            <button type="submit">Update Appointment</button>
+          </form>
+
+          <button id="close-update-appointment-modal-button" class="close-button">Close</button>
+        </div>
+      </div>
+
+      <!-- (previous sections remain unchanged) -->
+    </div>
+  </main>
+
+  <!-- (previous footer content remains unchanged) -->
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- (previous head content remains unchanged) -->
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // (previous JavaScript code remains unchanged)
+
+      // Function to display a success message
+      function showSuccessMessage(message) {
+        alert(`Success: ${message}`);
+      }
+
+      // Function to handle patient form submission
+      function submitPatientForm() {
+        const name = document.getElementById("patientName").value;
+        const age = document.getElementById("patientAge").value;
+
+        // Simulate server-side submission
+        const newPatient = {
+          id: patients.length + 1,
+          name: name,
+          age: parseInt(age),
+        };
+
+        // Add the new patient to the list
+        patients.push(newPatient);
+        updatePatientsList();
+        
+        // Display success message
+        showSuccessMessage("Patient added successfully");
+
+        // Close the modal
+        closeModal("addPatientModal");
+      }
+
+      // Function to handle doctor form submission
+      function submitDoctorForm() {
+        const name = document.getElementById("doctorName").value;
+        const specialization = document.getElementById("doctorSpecialization").value;
+
+        // Simulate server-side submission
+        const newDoctor = {
+          id: doctors.length + 1,
+          name: name,
+          specialization: specialization,
+        };
+
+        // Add the new doctor to the list
+        doctors.push(newDoctor);
+        updateDoctorsList();
+
+        // Display success message
+        showSuccessMessage("Doctor added successfully");
+
+        // Close the modal
+        closeModal("addDoctorModal");
+      }
+
+      // Function to handle appointment form submission
+      function submitAppointmentForm() {
+        const doctorId = document.getElementById("appointmentDoctor").value;
+        const patientId = document.getElementById("appointmentPatient").value;
+        const date = document.getElementById("appointmentDate").value;
+        const time = document.getElementById("appointmentTime").value;
+
+        // Simulate server-side submission
+        const newAppointment = {
+          id: appointments.length + 1,
+          doctorId: parseInt(doctorId),
+          patientId: parseInt(patientId),
+          date: date,
+          time: time,
+        };
+
+        // Add the new appointment to the list
+        appointments.push(newAppointment);
+        updateAppointmentsDisplay();
+
+        // Display success message
+        showSuccessMessage("Appointment added successfully");
+
+        // Close the modal
+        closeModal("addAppointmentModal");
+      }
+
+      // Attach event listener for form submissions
+      const patientForm = document.getElementById("patientForm");
+      const doctorForm = document.getElementById("doctorForm");
+      const appointmentForm = document.getElementById("appointmentForm");
+
+      patientForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        submitPatientForm();
+      });
+
+      doctorForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        submitDoctorForm();
+      });
+
+      appointmentForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        submitAppointmentForm();
+      });
+
+      // Function to handle patient update form submission
+      function submitUpdatePatientForm() {
+        const updatedName = document.getElementById("updatePatientName").value;
+        const updatedAge = document.getElementById("updatePatientAge").value;
+
+        // Simulate server-side update
+        const patientId = parseInt(document.getElementById("patientId").value);
+        const patientToUpdate = patients.find(patient => patient.id === patientId);
+
+        if (patientToUpdate) {
+          patientToUpdate.name = updatedName;
+          patientToUpdate.age = parseInt(updatedAge);
+          updatePatientsList();
+        }
+
+        // Display success message
+        showSuccessMessage("Patient updated successfully");
+
+        // Close the modal
+        closeModal("updatePatientModal");
+      }
+
+      // Function to handle doctor update form submission
+      function submitUpdateDoctorForm() {
+        const updatedName = document.getElementById("updateDoctorName").value;
+        const updatedSpecialization = document.getElementById("updateDoctorSpecialization").value;
+
+        // Simulate server-side update
+        const doctorId = parseInt(document.getElementById("doctorId").value);
+        const doctorToUpdate = doctors.find(doctor => doctor.id === doctorId);
+
+        if (doctorToUpdate) {
+          doctorToUpdate.name = updatedName;
+          doctorToUpdate.specialization = updatedSpecialization;
+          updateDoctorsList();
+        }
+
+        // Display success message
+        showSuccessMessage("Doctor updated successfully");
+
+        // Close the modal
+        closeModal("updateDoctorModal");
+      }
+
+      // Function to handle appointment update form submission
+      function submitUpdateAppointmentForm() {
+        const updatedDoctorId = document.getElementById("updateAppointmentDoctor").value;
+        const updatedPatientId = document.getElementById("updateAppointmentPatient").value;
+        const updatedDate = document.getElementById("updateAppointmentDate").value;
+        const updatedTime = document.getElementById("updateAppointmentTime").value;
+
+        // Simulate server-side update
+        const appointmentId = parseInt(document.getElementById("appointmentId").value);
+        const appointmentToUpdate = appointments.find(appointment => appointment.id === appointmentId);
+
+        if (appointmentToUpdate) {
+          appointmentToUpdate.doctorId = parseInt(updatedDoctorId);
+          appointmentToUpdate.patientId = parseInt(updatedPatientId);
+          appointmentToUpdate.date = updatedDate;
+          appointmentToUpdate.time = updatedTime;
+          updateAppointmentsDisplay();
+        }
+
+        // Display success message
+        showSuccessMessage("Appointment updated successfully");
+
+        // Close the modal
+        closeModal("updateAppointmentModal");
+      }
+
+      // Attach event listener for update form submissions
+      const updatePatientForm = document.getElementById("updatePatientForm");
+      const updateDoctorForm = document.getElementById("updateDoctorForm");
+      const updateAppointmentForm = document.getElementById("updateAppointmentForm");
+
+      updatePatientForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        submitUpdatePatientForm();
+      });
+
+      updateDoctorForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        submitUpdateDoctorForm();
+      });
+
+      updateAppointmentForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        submitUpdateAppointmentForm();
+      });
+    });
+  </script>
+</head>
+<body>
+  <!-- (previous body content remains unchanged) -->
+
+  <main>
+    <div class="container">
+      <!-- (previous sections remain unchanged) -->
+
+      <!-- Modal for updating patients -->
+      <div id="updatePatientModal" class="modal">
+        <div class="modal-content">
+          <form id="updatePatientForm">
+            <label for="updatePatientName">Patient Name:</label>
+            <input type="text" id="updatePatientName" name="updatePatientName" required>
+
+            <label for="updatePatientAge">Patient Age:</label>
+            <input type="number" id="updatePatientAge" name="updatePatientAge" required>
+
+            <input type="hidden" id="patientId" name="patientId">
+
+            <button type="submit">Update Patient</button>
+          </form>
+
+          <button id="close-update-patient-modal-button" class="close-button">Close</button>
+        </div>
+      </div>
+
+      <!-- Modal for updating doctors -->
+      <div id="updateDoctorModal" class="modal">
+        <div class="modal-content">
+          <form id="updateDoctorForm">
+            <label for="updateDoctorName">Doctor Name:</label>
+            <input type="text" id="updateDoctorName" name="updateDoctorName" required>
+
+            <label for="updateDoctorSpecialization">Doctor Specialization:</label>
+            <input type="text" id="updateDoctorSpecialization" name="updateDoctorSpecialization" required>
+
+            <input type="hidden" id="doctorId" name="doctorId">
+
+            <button type="submit">Update Doctor</button>
+          </form>
+
+          <button id="close-update-doctor-modal-button" class="close-button">Close</button>
+        </div>
+      </div>
+
+      <!-- Modal for updating appointments -->
+      <div id="updateAppointmentModal" class="modal">
+        <div class="modal-content">
+          <form id="updateAppointmentForm">
+            <label for="updateAppointmentDoctor">Doctor:</label>
+            <select id="updateAppointmentDoctor" name="updateAppointmentDoctor" required>
+              <!-- Add options dynamically using JavaScript -->
+            </select>
+
+            <label for="updateAppointmentPatient">Patient:</label>
+            <select id="updateAppointmentPatient" name="updateAppointmentPatient" required>
+              <!-- Add options dynamically using JavaScript -->
+            </select>
+
+            <label for="updateAppointmentDate">Date:</label>
+            <input type="date" id="updateAppointmentDate" name="updateAppointmentDate" required>
+
+            <label for="updateAppointmentTime">Time:</label>
+            <input type="time" id="updateAppointmentTime" name="updateAppointmentTime" required>
+
+            <input type="hidden" id="appointmentId" name="appointmentId">
+
+            <button type="submit">Update Appointment</button>
+          </form>
+
+          <button id="close-update-appointment-modal-button" class="close-button">Close</button>
+        </div>
+      </div>
+
+      <!-- (previous sections remain unchanged) -->
+    </div>
+  </main>
+
+  <!-- (previous footer content remains unchanged) -->
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- (previous head content remains unchanged) -->
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // (previous JavaScript code remains unchanged)
+
+      // Function to display an error message
+      function showErrorMessage(message) {
+        alert(`Error: ${message}`);
+      }
+
+      // Function to handle patient form submission
+      function submitPatientForm() {
+        const name = document.getElementById("patientName").value;
+        const age = document.getElementById("patientAge").value;
+
+        // Validate input
+        if (!name || !age || isNaN(age)) {
+          showErrorMessage("Please provide valid patient information.");
+          return;
+        }
+
+        // Simulate server-side submission
+        const newPatient = {
+          id: patients.length + 1,
+          name: name,
+          age: parseInt(age),
+        };
+
+        // Add the new patient to the list
+        patients.push(newPatient);
+        updatePatientsList();
+
+        // Display success message
+        showSuccessMessage("Patient added successfully");
+
+        // Close the modal
+        closeModal("addPatientModal");
+      }
+
+      // Function to handle doctor form submission
+      function submitDoctorForm() {
+        const name = document.getElementById("doctorName").value;
+        const specialization = document.getElementById("doctorSpecialization").value;
+
+        // Validate input
+        if (!name || !specialization) {
+          showErrorMessage("Please provide valid doctor information.");
+          return;
+        }
+
+        // Simulate server-side submission
+        const newDoctor = {
+          id: doctors.length + 1,
+          name: name,
+          specialization: specialization,
+        };
+
+        // Add the new doctor to the list
+        doctors.push(newDoctor);
+        updateDoctorsList();
+
+        // Display success message
+        showSuccessMessage("Doctor added successfully");
+
+        // Close the modal
+        closeModal("addDoctorModal");
+      }
+
+      // Function to handle appointment form submission
+      function submitAppointmentForm() {
+        const doctorId = document.getElementById("appointmentDoctor").value;
+        const patientId = document.getElementById("appointmentPatient").value;
+        const date = document.getElementById("appointmentDate").value;
+        const time = document.getElementById("appointmentTime").value;
+
+        // Validate input
+        if (!doctorId || !patientId || !date || !time) {
+          showErrorMessage("Please provide valid appointment information.");
+          return;
+        }
+
+        // Simulate server-side submission
+        const newAppointment = {
+          id: appointments.length + 1,
+          doctorId: parseInt(doctorId),
+          patientId: parseInt(patientId),
+          date: date,
+          time: time,
+        };
+
+        // Add the new appointment to the list
+        appointments.push(newAppointment);
+        updateAppointmentsDisplay();
+
+        // Display success message
+        showSuccessMessage("Appointment added successfully");
+
+        // Close the modal
+        closeModal("addAppointmentModal");
+      }
+
+      // Attach event listener for form submissions
+      const patientForm = document.getElementById("patientForm");
+      const doctorForm = document.getElementById("doctorForm");
+      const appointmentForm = document.getElementById("appointmentForm");
+
+      patientForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        submitPatientForm();
+      });
+
+      doctorForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        submitDoctorForm();
+      });
+
+      appointmentForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        submitAppointmentForm();
+      });
+
+      // Function to handle patient deletion
+      function deletePatient(patientId) {
+        const confirmed = confirm("Are you sure you want to delete this patient?");
+        if (confirmed) {
+          // Simulate server-side deletion
+          patients = patients.filter(patient => patient.id !== patientId);
+          updatePatientsList();
+          showSuccessMessage("Patient deleted successfully");
+        }
+      }
+
+      // Function to handle doctor deletion
+      function deleteDoctor(doctorId) {
+        const confirmed = confirm("Are you sure you want to delete this doctor?");
+        if (confirmed) {
+          // Simulate server-side deletion
+          doctors = doctors.filter(doctor => doctor.id !== doctorId);
+          updateDoctorsList();
+          showSuccessMessage("Doctor deleted successfully");
+        }
+      }
+
+      // Function to handle appointment deletion
+      function deleteAppointment(appointmentId) {
+        const confirmed = confirm("Are you sure you want to delete this appointment?");
+        if (confirmed) {
+          // Simulate server-side deletion
+          appointments = appointments.filter(appointment => appointment.id !== appointmentId);
+          updateAppointmentsDisplay();
+          showSuccessMessage("Appointment deleted successfully");
+        }
+      }
+
+      // Function to update patient list
+      function updatePatientsList() {
+        // Update patient list display (you can implement this based on your UI structure)
+      }
+
+      // Function to update doctor list
+      function updateDoctorsList() {
+        // Update doctor list display (you can implement this based on your UI structure)
+      }
+
+      // Function to update appointment display
+      function updateAppointmentsDisplay() {
+        // Update appointment display (you can implement this based on your UI structure)
+      }
+
+      // (previous code for update forms and lists remains unchanged)
+    });
+  </script>
+</head>
+<body>
+  <!-- (previous body content remains unchanged) -->
+
+  <main>
+    <div class="container">
+      <!-- (previous sections remain unchanged) -->
+
+      <!-- Modal for updating patients -->
+      <div id="updatePatientModal" class="modal">
+        <div class="modal-content">
+          <form id="updatePatientForm">
+            <!-- (previous update patient form remains unchanged) -->
+          </form>
+
+          <button id="close-update-patient-modal-button" class="close-button">Close</button>
+        </div>
+      </div>
+
+      <!-- Modal for updating doctors -->
+      <div id="updateDoctorModal" class="modal">
+        <div class="modal-content">
+          <form id="updateDoctorForm">
+            <!-- (previous update doctor form remains unchanged) -->
+          </form>
+
+          <button id="close-update-doctor-modal-button" class="close-button">Close</button>
+        </div>
+      </div>
+
+      <!-- Modal for updating appointments -->
+      <div id="updateAppointmentModal" class="modal">
+        <div class="modal-content">
+          <form id="updateAppointmentForm">
+            <!-- (previous update appointment form remains unchanged) -->
+          </form>
+
+          <button id="close-update-appointment-modal-button" class="close-button">Close</button>
+        </div>
+      </div>
+
+      <!-- (previous sections remain unchanged) -->
+    </div>
+  </main>
+
+  <!-- (previous footer content remains unchanged) -->
+</body>
+</html>
+<!-- (previous HTML content remains unchanged) -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // (previous JavaScript code remains unchanged)
+
+    // Function to display an error message
+    function showErrorMessage(message) {
+      alert(`Error: ${message}`);
+    }
+
+    // Function to handle patient form submission
+    function submitPatientForm() {
+      const name = document.getElementById("patientName").value;
+      const age = document.getElementById("patientAge").value;
+
+      // Validate input
+      if (!name.trim()) {
+        showErrorMessage("Please provide a valid patient name.");
+        return;
+      }
+
+      if (!age.trim() || isNaN(age)) {
+        showErrorMessage("Please provide a valid age for the patient.");
+        return;
+      }
+
+      // Simulate server-side submission
+      const newPatient = {
+        id: patients.length + 1,
+        name: name,
+        age: parseInt(age),
+      };
+
+      // Add the new patient to the list
+      patients.push(newPatient);
+      updatePatientsList();
+
+      // Display success message
+      showSuccessMessage("Patient added successfully");
+
+      // Close the modal
+      closeModal("addPatientModal");
+    }
+
+    // Function to handle doctor form submission
+    function submitDoctorForm() {
+      const name = document.getElementById("doctorName").value;
+      const specialization = document.getElementById("doctorSpecialization").value;
+
+      // Validate input
+      if (!name.trim()) {
+        showErrorMessage("Please provide a valid doctor name.");
+        return;
+      }
+
+      if (!specialization.trim()) {
+        showErrorMessage("Please provide a valid specialization for the doctor.");
+        return;
+      }
+
+      // Simulate server-side submission
+      const newDoctor = {
+        id: doctors.length + 1,
+        name: name,
+        specialization: specialization,
+      };
+
+      // Add the new doctor to the list
+      doctors.push(newDoctor);
+      updateDoctorsList();
+
+      // Display success message
+      showSuccessMessage("Doctor added successfully");
+
+      // Close the modal
+      closeModal("addDoctorModal");
+    }
+
+    // Function to handle appointment form submission
+    function submitAppointmentForm() {
+      const doctorId = document.getElementById("appointmentDoctor").value;
+      const patientId = document.getElementById("appointmentPatient").value;
+      const date = document.getElementById("appointmentDate").value;
+      const time = document.getElementById("appointmentTime").value;
+
+      // Validate input
+      if (!doctorId || !patientId || !date.trim() || !time.trim()) {
+        showErrorMessage("Please provide valid appointment information.");
+        return;
+      }
+
+      // Simulate server-side submission
+      const newAppointment = {
+        id: appointments.length + 1,
+        doctorId: parseInt(doctorId),
+        patientId: parseInt(patientId),
+        date: date,
+        time: time,
+      };
+
+      // Add the new appointment to the list
+      appointments.push(newAppointment);
+      updateAppointmentsDisplay();
+
+      // Display success message
+      showSuccessMessage("Appointment added successfully");
+
+      // Close the modal
+      closeModal("addAppointmentModal");
+    }
+
+    // Attach event listener for form submissions
+    const patientForm = document.getElementById("patientForm");
+    const doctorForm = document.getElementById("doctorForm");
+    const appointmentForm = document.getElementById("appointmentForm");
+
+    patientForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+      submitPatientForm();
+    });
+
+    doctorForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+      submitDoctorForm();
+    });
+
+    appointmentForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+      submitAppointmentForm();
+    });
+
+    // Function to handle patient deletion
+    function deletePatient(patientId) {
+      const confirmed = confirm("Are you sure you want to delete this patient?");
+      if (confirmed) {
+        // Simulate server-side deletion
+        patients = patients.filter(patient => patient.id !== patientId);
+        updatePatientsList();
+        showSuccessMessage("Patient deleted successfully");
+      }
+    }
+
+    // Function to handle doctor deletion
+    function deleteDoctor(doctorId) {
+      const confirmed = confirm("Are you sure you want to delete this doctor?");
+      if (confirmed) {
+        // Simulate server-side deletion
+        doctors = doctors.filter(doctor => doctor.id !== doctorId);
+        updateDoctorsList();
+        showSuccessMessage("Doctor deleted successfully");
+      }
+    }
+
+    // Function to handle appointment deletion
+    function deleteAppointment(appointmentId) {
+      const confirmed = confirm("Are you sure you want to delete this appointment?");
+      if (confirmed) {
+        // Simulate server-side deletion
+        appointments = appointments.filter(appointment => appointment.id !== appointmentId);
+        updateAppointmentsDisplay();
+        showSuccessMessage("Appointment deleted successfully");
+      }
+    }
+
+    // (previous code for update forms and lists remains unchanged)
+  });
+</script>
+
+<!-- (previous HTML content remains unchanged) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- (previous head content remains unchanged) -->
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // (previous JavaScript code remains unchanged)
+
+      // Function to display a success message
+      function showSuccessMessage(message) {
+        alert(`Success: ${message}`);
+      }
+
+      // Function to handle patient form submission
+      function submitPatientForm() {
+        const name = document.getElementById("patientName").value;
+        const age = document.getElementById("patientAge").value;
+
+        // Validate input
+        if (!name.trim()) {
+          showErrorMessage("Please provide a valid patient name.");
+          return;
+        }
+
+        if (!age.trim() || isNaN(age)) {
+          showErrorMessage("Please provide a valid age for the patient.");
+          return;
+        }
+
+        // Simulate server-side submission
+        const newPatient = {
+          id: patients.length + 1,
+          name: name,
+          age: parseInt(age),
+        };
+
+        // Add the new patient to the list
+        patients.push(newPatient);
+        updatePatientsList();
+
+        // Display success message
+        showSuccessMessage("Patient added successfully");
+
+        // Close the modal
+        closeModal("addPatientModal");
+      }
+
+      // Function to handle doctor form submission
+      function submitDoctorForm() {
+        const name = document.getElementById("doctorName").value;
+        const specialization = document.getElementById("doctorSpecialization").value;
+
+        // Validate input
+        if (!name.trim()) {
+          showErrorMessage("Please provide a valid doctor name.");
+          return;
+        }
+
+        if (!specialization.trim()) {
+          showErrorMessage("Please provide a valid specialization for the doctor.");
+          return;
+        }
+
+        // Simulate server-side submission
+        const newDoctor = {
+          id: doctors.length + 1,
+          name: name,
+          specialization: specialization,
+        };
+
+        // Add the new doctor to the list
+        doctors.push(newDoctor);
+        updateDoctorsList();
+
+        // Display success message
+        showSuccessMessage("Doctor added successfully");
+
+        // Close the modal
+        closeModal("addDoctorModal");
+      }
+
+      // Function to handle appointment form submission
+      function submitAppointmentForm() {
+        const doctorId = document.getElementById("appointmentDoctor").value;
+        const patientId = document.getElementById("appointmentPatient").value;
+        const date = document.getElementById("appointmentDate").value;
+        const time = document.getElementById("appointmentTime").value;
+
+        // Validate input
+        if (!doctorId || !patientId || !date.trim() || !time.trim()) {
+          showErrorMessage("Please provide valid appointment information.");
+          return;
+        }
+
+        // Simulate server-side submission
+        const newAppointment = {
+          id: appointments.length + 1,
+          doctorId: parseInt(doctorId),
+          patientId: parseInt(patientId),
+          date: date,
+          time: time,
+        };
+
+        // Add the new appointment to the list
+        appointments.push(newAppointment);
+        updateAppointmentsDisplay();
+
+        // Display success message
+        showSuccessMessage("Appointment added successfully");
+
+        // Close the modal
+        closeModal("addAppointmentModal");
+      }
+
+      // Attach event listener for form submissions
+      const patientForm = document.getElementById("patientForm");
+      const doctorForm = document.getElementById("doctorForm");
+      const appointmentForm = document.getElementById("appointmentForm");
+
+      patientForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        submitPatientForm();
+      });
+
+      doctorForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        submitDoctorForm();
+      });
+
+      appointmentForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        submitAppointmentForm();
+      });
+
+      // Function to handle patient deletion
+      function deletePatient(patientId) {
+        const confirmed = confirm("Are you sure you want to delete this patient?");
+        if (confirmed) {
+          // Simulate server-side deletion
+          patients = patients.filter(patient => patient.id !== patientId);
+          updatePatientsList();
+          showSuccessMessage("Patient deleted successfully");
+        }
+      }
+
+      // Function to handle doctor deletion
+      function deleteDoctor(doctorId) {
+        const confirmed = confirm("Are you sure you want to delete this doctor?");
+        if (confirmed) {
+          // Simulate server-side deletion
+          doctors = doctors.filter(doctor => doctor.id !== doctorId);
+          updateDoctorsList();
+          showSuccessMessage("Doctor deleted successfully");
+        }
+      }
+
+      // Function to handle appointment deletion
+      function deleteAppointment(appointmentId) {
+        const confirmed = confirm("Are you sure you want to delete this appointment?");
+        if (confirmed) {
+          // Simulate server-side deletion
+          appointments = appointments.filter(appointment => appointment.id !== appointmentId);
+          updateAppointmentsDisplay();
+          showSuccessMessage("Appointment deleted successfully");
+        }
+      }
+
+      // Function to update patient list
+      function updatePatientsList() {
+        const patientsList = document.getElementById("patientsList");
+        patientsList.innerHTML = ""; // Clear existing content
+
+        patients.forEach(patient => {
+          const listItem = document.createElement("li");
+          listItem.textContent = `${patient.name} (Age: ${patient.age})`;
+
+          const deleteButton = document.createElement("button");
+          deleteButton.textContent = "Delete";
+          deleteButton.addEventListener("click", () => deletePatient(patient.id));
+
+          listItem.appendChild(deleteButton);
+          patientsList.appendChild(listItem);
+        });
+      }
+
+      // Function to update doctor list
+      function updateDoctorsList() {
+        const doctorsList = document.getElementById("doctorsList");
+        doctorsList.innerHTML = ""; // Clear existing content
+
+        doctors.forEach(doctor => {
+          const listItem = document.createElement("li");
+          listItem.textContent = `${doctor.name} (Specialization: ${doctor.specialization})`;
+
+          const deleteButton = document.createElement("button");
+          deleteButton.textContent = "Delete";
+          deleteButton.addEventListener("click", () => deleteDoctor(doctor.id));
+
+          listItem.appendChild(deleteButton);
+          doctorsList.appendChild(listItem);
+        });
+      }
+
+      // Function to update appointment display
+      function updateAppointmentsDisplay() {
+        const appointmentsList = document.getElementById("appointmentsList");
+        appointmentsList.innerHTML = ""; // Clear existing content
+
+        appointments.forEach(appointment => {
+          const listItem = document.createElement("li");
+          listItem.textContent = `Doctor: ${findDoctorName(appointment.doctorId)}, Patient: ${findPatientName(appointment.patientId)}, Date: ${appointment.date}, Time: ${appointment.time}`;
+
+          const deleteButton = document.createElement("button");
+          deleteButton.textContent = "Delete";
+          deleteButton.addEventListener("click", () => deleteAppointment(appointment.id));
+
+          listItem.appendChild(deleteButton);
+          appointmentsList.appendChild(listItem);
+        });
+      }
+
+      // Function to find doctor name by ID
+      function findDoctorName(doctorId) {
+        const doctor = doctors.find(doctor => doctor.id === doctorId);
+        return doctor ? doctor.name : "Unknown Doctor";
+      }
+
+      // Function to find patient name by ID
+      function findPatientName(patientId) {
+        const patient = patients.find(patient => patient.id === patientId);
+        return patient ? patient.name : "Unknown Patient";
+      }
+
+      // (previous code for update forms remains unchanged)
+    });
+  </script>
+</head>
+<body>
+  <!-- (previous body content remains unchanged) -->
+
+  <main>
+    <div class="container">
+      <!-- (previous sections remain unchanged) -->
+
+      <section id="patientsSection">
+        <h2>Patients</h2>
+        <ul id="patientsList">
+          <!-- Patient list items will be dynamically added here -->
+        </ul>
+      </section>
+
+      <section id="doctorsSection">
+        <h2>Doctors</h2>
+        <ul id="doctorsList">
+          <!-- Doctor list items will be dynamically added here -->
+        </ul>
+      </section>
+
+      <section id="appointmentsSection">
+        <h2>Appointments</h2>
+        <ul id="appointmentsList">
+          <!-- Appointment list items will be dynamically added here -->
+        </ul>
+      </section>
+
+      <!-- (previous modal sections remain unchanged) -->
+    </div>
+  </main>
+
+  <!-- (previous footer content remains unchanged) -->
+</body>
+</html>
